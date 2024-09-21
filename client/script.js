@@ -6,7 +6,7 @@ function handleSubmit(event) {
   const formData = new FormData(guestbookForm);
   const formObject = Object.fromEntries(formData);
   console.log(formObject);
-  fetch("http://localhost:8080/feedback"),
+  fetch("http://localhost:8080/add-new-feedback"),
     {
       method: "POST",
       headers: {

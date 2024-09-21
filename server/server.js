@@ -42,13 +42,18 @@ app.get("/feedback", async (req, res) => {
 });
 
 //You need a route to CREATE or ADD new data to the database
-app.post("/feedback", async function (req, res) {
+app.post("/add-new-feedback", function (req, res) {
   const data = req.body;
-  db.query(
-    `INSERT INTO feedback(name, date_visited, device_used, comments)
-    VALUES ($1, $2, $3, $4)`,
-    [`data.name`, `data.date_visited`, `data.device_used`, `data.comments`]
-  );
+  // db.query(
+  //   `INSERT INTO feedback(name, date_visited, device_used, comments)
+  //   VALUES ($1, $2, $3, $4)`,
+  //   [
+  //     data.formObject.name,
+  //     data.formObject.date_visited,
+  //     data.formObject.device_used,
+  //     data.formObject.comments,
+  //   ]
+  // );
   res.json({ status: "Data received" });
 });
 //!In your CREATE route, the request.body is an object that represents the form data coming from your client
