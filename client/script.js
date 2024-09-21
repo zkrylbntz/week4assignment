@@ -1,9 +1,21 @@
-//DOM manipulation
-//Select the form
-//Select the feedback container
+const feedbackContainer = document.getElementById("feedback-container");
+const guestbookForm = document.getElementById("guestbook-form");
 
-//FORM
-//We need an event to submit the form data
+function handleSubmit(event) {
+  event.preventDefault();
+  const formData = new FormData(guestbookForm);
+  const formObject = Object.fromEntries(formData);
+  console.log(formObject);
+  fetch("http://localhost:8080/feedback"),
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ formObject }),
+    };
+}
+guestbookForm.addEventListener("submit", handleSubmit);
 
 //The event handler
 //Prevent the defualt behaviour
@@ -32,12 +44,33 @@
 //Pare the response into JSON
 //Wrangle data, if necessary
 
-//I need to display the data on the page
-//!Array of items
-databaseData.forEach((item) => {
-  //I need to create DOM elements to contain the data
-  //!One DOM element (h1, h2, p, li....) per piece of data (username, comment...) --> for example, if I am getting username and comment from the database, I need TWO DOM elements, one for username, and one for comment
-  //I need to assign the values to the text content property
-  //For example, the text content property for my h1 will have a value of the username from my database data
-  //I need to individually append those elements to the DOM
-});
+async function getFeedback() {
+  const response = await fetch("http://localhost:8080/feedback");
+  console.log("HTTP Response:", response);
+  const json = await response.json();
+  console.log("JSON Data:", json);
+  return json;
+}
+
+async function createFeedback() {
+  const data = await getFeedback();
+  data.forEach((feedback) => {
+    const h1 = document.createElement("h1");
+    h1.textContent = feedback.name;
+    feedbackContainer.appendChild(h1);
+
+    const h2 = document.createElement("h2");
+    h2.textContent = feedback.date_visited;
+    feedbackContainer.appendChild(h2);
+
+    const h3 = document.createElement("h3");
+    h3.textContent = feedback.device_used;
+    feedbackContainer.appendChild(h3);
+
+    const p = document.createElement("p");
+    p.textContent = feedback.comments;
+    feedbackContainer.appendChild(p);
+  });
+}
+
+createFeedback();
