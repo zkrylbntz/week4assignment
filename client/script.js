@@ -6,7 +6,7 @@ function handleSubmit(event) {
   const formData = new FormData(guestbookForm);
   const formObject = Object.fromEntries(formData);
   console.log(formObject);
-  fetch("http://localhost:8080/add-new-feedback"),
+  fetch("https://week4assignment.onrender.com/add-new-feedback"),
     {
       method: "POST",
       headers: {
@@ -45,7 +45,7 @@ guestbookForm.addEventListener("submit", handleSubmit);
 //Wrangle data, if necessary
 
 async function getFeedback() {
-  const response = await fetch("http://localhost:8080/feedback");
+  const response = await fetch("https://week4assignment.onrender.com/feedback");
   console.log("HTTP Response:", response);
   const json = await response.json();
   console.log("JSON Data:", json);
