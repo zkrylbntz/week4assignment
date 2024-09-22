@@ -1,3 +1,75 @@
 /* You can have a CSS reset */
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 /* I need media queries for at least mobile and desktop screens */
+
+* {
+  background-color: azure;
+  font-family: monospace;
+}
+
+#title {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-weight: bolder;
+  text-align: center;
+  font-size: xx-large;
+}
+
+#greet {
+  font-weight: bold;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+}
+
+#guestbook-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 450px;
+  float: left;
+}
+
+#submit-button {
+  display: flex;
+  align-items: center;
+}
+
+#device:placeholder-shown {
+  text-overflow: ellipsis;
+  width: 210px;
+}
+#comments:placeholder-shown {
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#feedback-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 350px;
+  height: 50vh;
+  margin: 20px;
+  padding: 20px;
+}
+
+#surfer {
+  border: 1px solid;
+  float: right;
+}
+
+@media (min-width: 375px) {
+  #guestbook-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 450px;
+  }
+  #surfer {
+    border: 1px solid;
+  }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<div lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -8,37 +8,54 @@
     <script type="module" src="./script.js" defer></script>
     <title>Guestbook</title>
   </head>
-    <h1>Guestbook</h1>
+    <h1 id="title">Guestbook</h1>
+    <h2 id="greet">Greetings web surfers, please come in, take a seat and put your feet up! Let me know below how you find your stay!</h2>
     <form id="guestbook-form">
       <fieldset>
       <legend>Write a message</legend>
-      <label for="Name">Name</label>
+      <label for="Name">Name:</label>
       <input type="text"
       name="Name"
       placeholder="Name"
       required
       />
-      <label for="Date">Date</label>
+      <br>
+      <br>
+      <label for="Date">Date:</label>
       <input type="date"
       name="Date"
       placeholder="Tell me when you visited"
       required
       />
-      <label for="Device">Device</label>
+      <br>
+      <br>
+      <label for="Device">Device:</label>
       <input type="text"
+      id="device"
       name="Device"
-      placeholder="What device got you here>"
+      placeholder="What device got you here"
       required
       />
-      <label for="Comments">Comments</label>
+      <br>
+      <br>
+      <label for="Comments">Comments:</label>
       <input type="text"
+      id="comments"
       name="Comments"
       placeholder="Tell me what you think of the place"
       required
       />
-      <button type="submit">Let me know!</button>
+      <br>
+      <br>
+      <button type="submit"
+      id="submit-button">Let me know!</button>
       </fieldset>
-</form>
+      <br>
+      <img src="./public/Internet_Security_Month_Top_5_Tips_to_Safely_Surf_the_Web.webp"
+      id="surfer"
+      alt="a simple computer graphic of a man surfing out of his computer screen"/>
+      </form>
+      </div>
 <fieldset>
   <legend>Check out what other people are saying!</legend>
 <div id="feedback-container">
